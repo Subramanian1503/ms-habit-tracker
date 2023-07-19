@@ -1,0 +1,211 @@
+<div id="view_habits_container">
+  <!-- view habit header section -->
+  <section id="view_habit_header">
+    
+    <div id="user_profile_information">
+      <h1>Hi</h1>
+    </div>
+
+    <div id = "icon_to_create_habit">
+      <a href="/add_habits" id = "add_habit_link">
+        <img src="https://cdn-icons-png.flaticon.com/256/148/148764.png" alt="add_icon" width="30" height="30">
+      </a>
+    </div>
+
+    <section id = "add_habit_modal">
+      <div id = "add_habit_form">
+        <form action="/habit/create" method="post" class = "create_habit_form">
+          <div class = "create_habit_subheading">Create Habit! <p>X</p></div>
+        <input type="text" name="name" placeholder="Name of habit.." class = "input_text_field"/>
+        <input type="text" name="avatar" placeholder="Copy avatar url" class = "input_text_field"/>
+        <button class = "create_button">Create</button>
+      </form>
+      </div>
+    </section>
+    
+  </section>
+
+  <!-- habits view section -->
+  <section id="habit_view_section" class="flex_row_arrange_even">
+    
+    <!-- marked for today section-->
+    <section class="habit_view_column">
+      <!-- habit view heading -->
+      <div class="habit_list_heading flex_row_arrange_even">
+        <!-- left partition -->
+        <div class = "subheading">
+            <h4>TODO</h4>
+        </div>
+
+        <!-- right partition -->
+      </div>
+
+      <!-- habit list by category -->
+      <div class="habits_list_by_status flex_item_center">
+        <ul>
+          <% for (let habit_index = 0; habit_index < habits_track_for_today.length; habit_index++ ) { %>
+          
+            <% if (habits_track_for_today[habit_index].status === 'TO_DO') { %>
+            <li class = "habit_card">
+
+              <!-- card image of item -->
+                <img class = "habit_image" src=<%= habits_track_for_today[habit_index].habit.avatar %> alt=<%= habits_track_for_today[habit_index].habit.name %> height="100" width="100">
+                
+                <!-- habit name -->
+                <div class = "habit_name flex_item_center">
+                  <%= habits_track_for_today[habit_index].habit.name %>
+                </div>
+
+                <div class = "habit_track">
+                  <div class="dropdown">
+                    <button class="dropbtn">TO_DO</button>
+                    <div class="dropdown-content">
+                      <a href="/habit-track/update/<%= habits_track_for_today[habit_index]._id %>?update_status=IN_PROGRESS">IN_PRO</a>
+                      <a href="/habit-track/update/<%= habits_track_for_today[habit_index]._id %>?update_status=NOT_FOR_TODAY">NFT</a>
+                    </div>
+                  </div>
+                </div>
+              
+            </li>
+           
+            <% } %>
+           
+            <% } %>
+        </ul>
+      </div>
+    </section>
+
+    <!-- habits in progress section -->
+    <section class="habit_view_column">
+      <!-- habit view heading -->
+      <div class="habit_list_heading flex_row_arrange_even">
+        <!-- left partition -->
+        <div class = "subheading">
+            <h4>IN PROGRESS</h4>
+        </div>
+
+        <!-- right partition -->
+      </div>
+
+      <!-- habit list by category -->
+      <div class="habits_list_by_status flex_item_center">
+        <% for (let habit_index = 0; habit_index < habits_track_for_today.length; habit_index++ ) { %>
+          
+          <% if (habits_track_for_today[habit_index].status === 'IN_PROGRESS') { %>
+          <li class = "habit_card">
+
+            <!-- card image of item -->
+              <img class = "habit_image" src=<%= habits_track_for_today[habit_index].habit.avatar %> alt=<%= habits_track_for_today[habit_index].habit.name %> height="100" width="100">
+              
+              <!-- habit name -->
+              <div class = "habit_name flex_item_center">
+                <%= habits_track_for_today[habit_index].habit.name %>
+              </div>
+
+              <div class = "habit_track">
+                <div class="dropdown">
+                  <button class="dropbtn">IN_PRO</button>
+                  <div class="dropdown-content">
+                    <a href="/habit-track/update/<%= habits_track_for_today[habit_index]._id %>?update_status=TO_DO">TODO</a>
+                    <a href="/habit-track/update/<%= habits_track_for_today[habit_index]._id %>?update_status=DONE">DONE</a>
+                    <a href="/habit-track/update/<%= habits_track_for_today[habit_index]._id %>?update_status=NOT_FOR_TODAY">NOT_FOR_TODAY</a>
+                  </div>
+                </div>
+              </div>
+            
+          </li>
+         
+          <% } %>
+         
+          <% } %>
+      </div>
+    </section>
+
+    <!-- habits done for today section -->
+    <section class="habit_view_column ">
+      <!-- habit view heading -->
+      <div class="habit_list_heading flex_row_arrange_even">
+        <!-- left partition -->
+        <div class = "subheading">
+            <h4>DONE</h4>
+        </div>
+
+        <!-- right partition -->
+      </div>
+
+      <!-- habit list by category -->
+      <div class="habits_list_by_status flex_item_center">
+        <% for (let habit_index = 0; habit_index < habits_track_for_today.length; habit_index++ ) { %>
+          
+          <% if (habits_track_for_today[habit_index].status === 'DONE') { %>
+          <li class = "habit_card">
+
+            <!-- card image of item -->
+              <img class = "habit_image" src=<%= habits_track_for_today[habit_index].habit.avatar %> alt=<%= habits_track_for_today[habit_index].habit.name %> height="100" width="100">
+              
+              <!-- habit name -->
+              <div class = "habit_name flex_item_center">
+                <%= habits_track_for_today[habit_index].habit.name %>
+              </div>
+
+              <div class = "habit_track">
+                <div class="dropdown">
+                  <button class="dropbtn">DONE</button>
+                  <div class="dropdown-content">
+                    <a href="/habit-track/update/<%= habits_track_for_today[habit_index]._id %>?update_status=TO_DO">TODO</a>
+                  </div>
+                </div>
+              </div>
+            
+          </li>
+         
+          <% } %>
+         
+          <% } %>
+      </div>
+    </section>
+
+    <!-- habits not done for today section -->
+    <section class="habit_view_column ">
+      <!-- habit view heading -->
+      <div class="habit_list_heading flex_row_arrange_even">
+        <!-- left partition -->
+        <div class = "subheading">
+            <h4>NOT FOR TODAY</h4>
+        </div>
+
+        <!-- right partition -->
+      </div>
+
+      <!-- habit list by category -->
+      <div class="habits_list_by_status flex_item_center">
+        <% for (let habit_index = 0; habit_index < habits_track_for_today.length; habit_index++ ) { %>
+          
+          <% if (habits_track_for_today[habit_index].status === 'NOT_FOR_TODAY') { %>
+          <li class = "habit_card">
+
+            <!-- card image of item -->
+              <img class = "habit_image" src=<%= habits_track_for_today[habit_index].habit.avatar %> alt=<%= habits_track_for_today[habit_index].habit.name %> height="100" width="100">
+              
+              <!-- habit name -->
+              <div class = "habit_name flex_item_center">
+                <%= habits_track_for_today[habit_index].habit.name %>
+              </div>
+
+              <div class = "habit_track">
+                <div class="dropdown">
+                  <button class="dropbtn">NFT</button>
+                  <div class="dropdown-content">
+                    <a href="/habit-track/update/<%= habits_track_for_today[habit_index]._id %>?update_status=TO_DO">TODO</a>
+                  </div>
+                </div>
+              </div>
+            
+          </li>
+         
+          <% } %>
+         
+          <% } %>
+      </div>
+    </section>
+</div>

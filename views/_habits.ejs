@@ -1,0 +1,23 @@
+<!-- habit details container -->
+<section id="habitsDetailSection">
+  <!-- view header -->
+  <section class="pageHeader">
+    <!-- left option -->
+    <div class="leftContent">
+      <!-- options list page -->
+      <!-- page heading -->
+    </div>
+    <!-- right option -->
+    <div class="rightContent">
+      <!-- ending design -->
+    </div>
+  </section>
+  <!-- habit list container -->
+  <section id="habitsList">
+    <ul>
+      <% for(habit of habits){%> 
+        <%- include('_habit_details') -%> 
+      <%}%>
+    </ul>
+  </section>
+</section>

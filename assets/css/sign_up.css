@@ -1,0 +1,43 @@
+#sign_up_page {
+  position: relative;
+}
+
+#sign_up_heading {
+  position: absolute;
+  top: 150px;
+  left: 210px;
+  line-break: normal;
+  width: 500px;
+}
+
+#sign_up {
+  position: absolute;
+  top: 260px;
+  background-color: #04b84f;
+}
+
+#sign_up_container {
+  /* border: 2px solid black; */
+  width: 410px;
+  height: 150px;
+  position: absolute;
+  top: 280px;
+  left: 200px;
+}
+
+#sign_up_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+}
+
+#sign_up_link_section {
+  background-image: url("https://previews.123rf.com/images/praewpailin/praewpailin1901/praewpailin190100182/115582106-green-grass-texture-for-background-green-lawn-pattern-and-texture-background-close-up.jpg");
+  background-repeat: no-repeat;
+}
+
+.file_input{
+  padding-top: 7px;
+}

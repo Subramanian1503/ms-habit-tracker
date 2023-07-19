@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#progress_container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+#calender_view_container {
+  /* border: 2px solid black; */
+  height: 735px;
+  width: 1534px;
+  box-sizing: border-box;
+}
+
+#calender_view_header {
+  /* border: 2px solid black; */
+  width: inherit;
+  height: 100px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  font-size: 20px;
+}
+
+#calender_view_section {
+  /* border: 2px solid blue; */
+  width: inherit;
+  height: 600px;
+  box-sizing: border-box;
+}
+
+#calender_habit_information {
+  /* border: 2px solid black; */
+  width: 100px;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.day_habit_progress {
+  width: 200px;
+  height: inherit;
+  /* border: 2px solid black; */
+  /* border-right: none; */
+  /* border-top: none; */
+}
+
+.calender_row_section {
+  /* border: 2px solid black; */
+  /* border-bottom: none; */
+  width: inherit;
+  height: 100px;
+  display: flex;
+}
+
+#date_information {
+  border-bottom: 1px solid black;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.editIcon {
+  cursor: pointer;
+}
+
+table, td {
+  border: 1px solid black;
+}

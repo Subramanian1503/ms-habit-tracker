@@ -1,0 +1,57 @@
+<header class="left_right_partition" id="page_header">
+  <!-- left partition -->
+  <div id="header_container">
+    <!-- brand information -->
+    <div id="brand_information">
+      <!-- brand icon -->
+      <img src="https://cdn-images.cure.fit/www-curefit-com/image/upload/c_fill,w_120,q_auto:eco,dpr_2,f_auto,fl_progressive//image/test/brand-logo/vman-and-white-cult-text.png" alt="brand logo" width="120" height="31.007751937984494" />
+    </div>
+
+    <!-- list of menus for navigation -->
+    <div id="navigation_menu_container" class="flex_row_spaceBetween">
+      <!-- views link -->
+      <a class="navigation_link flex_item_center" href="/">
+
+        <!-- menu item -->
+        <div selected class="navigation_menu_item flex_row_center">
+          <div id="views_heading">
+            <h5 class="navigation_item_name">VIEWS</h5>
+          </div>
+        </div>
+
+      </a>
+
+      <!-- calendar link -->
+      <a class="navigation_link flex_item_center" href="/calender">
+        <div class="navigation_menu_item flex_row_center">
+          <div id="calender_heading">
+            <h5 class="navigation_item_name">CALENDER</h5>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+
+    <!-- right partition -->
+    <div id="user_settings" class="flex_item_center">
+ 
+      <!-- user information link container -->
+      <div id="user_information_link_container" class="flex_item_center">
+
+        <!-- user _icon -->
+        <!-- <div id="profile_image_container">
+          <img src="https://cdn-images.cure.fit/www-curefit-com/image/upload/c_fill,w_26,q_auto:eco,dpr_2,f_auto,fl_progressive/image/test/header/Profile.png" alt="log_out_image" width="26" height="26">
+        </div> -->
+
+        <!-- log out button -->
+        <% if (locals.user) { %>
+        <a href="/users/signOut" id = signout_link>
+          <div id="logout_button">Log out</div>
+        </a>
+        <% } %>
+
+      </div>
+
+    </div>
+</header>

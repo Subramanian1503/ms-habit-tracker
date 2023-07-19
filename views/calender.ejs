@@ -1,0 +1,288 @@
+<section id="calender_view_container">
+
+  <section id="edit_habit-track_status_container">
+
+    <section id="edit_habit-track_status">
+      <div id="edit_habit_header">
+        Edit habit status
+        <p>X</p>
+      </div>
+
+      <form action="TO_BE_UPDATED_BY_SCRIPT" method="post" id="edit_habit-track_status_form">
+
+        <input type="radio" id="todo" name="update_status" value="TO_DO" class="input_radio" />
+        <label for="todo" class = "input_radio_label">TODO</label><br />
+
+        <input type="radio" id="in_progress" name="update_status" value="IN_PROGRESS" class="input_radio" />
+        <label for="in_progress" class = "input_radio_label">IN_PROGRESS</label><br />
+
+        <input type="radio" id="done" name="update_status" value="DONE" class="input_radio" />
+        <label for="done" class = "input_radio_label">DONE</label><br />
+
+        <input type="radio" id="not_for_today" name="update_status" value="NOT_FOR_TODAY" class="input_radio" />
+        <label for="not_for_today" class = "input_radio_label">NOT_FOR_TODAY</label><br />
+
+        <button class="update_button">Update</button>
+
+      </form>
+
+    </section>
+
+  </section>
+
+  <header id="calender_view_header">Today's date is <%= dates_list[0]%></header>
+
+  <table id="calender_view_section">
+    <% for (let habit_index = 0; habit_index < habit_information_list.length;
+    habit_index++) {%>
+    <!-- get habit information from the data -->
+    <% const habit = habit_information_list[habit_index].habit %>
+
+    <!-- get previous seven day information about habit -->
+    <% const seven_day_information_about_habit =
+    habit_information_list[habit_index].seven_days_info %>
+
+    <tr class="calender_row_section">
+      <!-- about habit information -->
+      <td id="calender_habit_information">
+        <span><%= habit.name%></span>
+      </td>
+
+      <!-- Day 1 habit information -->
+      <td class="day_habit_progress">
+        <!-- date information -->
+        <div id="date_information">
+          <%= dates_list[0] %> <% if( seven_day_information_about_habit[0] ) {
+          %>
+          <div class="editIcon" data-habit_track-id=<%= seven_day_information_about_habit[0].id %> data-habit_track-status=<%= seven_day_information_about_habit[0].status %>>
+            <img src="https://cdn-icons-png.flaticon.com/512/32/32355.png" alt="edit icon" height="20" width="20" />
+          </div>
+          <% } %>
+        </div>
+
+        <% if(seven_day_information_about_habit[0]) { %>
+        <%if(seven_day_information_about_habit[0].status === 'DONE') {%>
+        <div id="progress_container">
+          <img src="https://cdn.pixabay.com/photo/2012/04/24/13/49/tick-40143_1280.png" alt="correct-tick-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[0].status ===
+        "NOT_FOR_TODAY") {%>
+        <div id="progress_container">
+          <img src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-wrong-false-icon-design-template-vector-isolated-png-image_711426.jpg" alt="wrong-cross-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[0].status ===
+        "IN_PROGRESS") {%>
+        <div id="progress_container">
+          <img src="https://t3.ftcdn.net/jpg/00/89/29/08/360_F_89290814_TSIevLOXjAUtXGpO0EOhTp1cH9gQWlhq.jpg" alt="work_in_progress" height="70" width="100" />
+        </div>
+        <% } else {%>
+        <div id="progress_container">
+          <img src="https://previews.123rf.com/images/lkeskinen/lkeskinen1701/lkeskinen170101285/68343996-not-completed-rubber-stamp.jpg" alt="work_rejected" height="70" width="100" />
+        </div>
+        <% }%> <% } %>
+      </td>
+
+      <!-- Day 2 habit information -->
+      <td class="day_habit_progress">
+        <!-- date information -->
+        <div id="date_information">
+          <%= dates_list[1] %> <% if (seven_day_information_about_habit[1]) { %>
+          <div class="editIcon" data-habit_track-id=<%= seven_day_information_about_habit[1]._id %> data-habit_track-status=<%= seven_day_information_about_habit[1].status %>>
+            <img src=" https://cdn-icons-png.flaticon.com/512/32/32355.png" alt="edit icon" height="20" width="20" />
+          </div>
+          <% } %>
+        </div>
+
+        <% if(seven_day_information_about_habit[1]) { %> <%
+        if(seven_day_information_about_habit[1].status === "DONE") {%>
+        <div id="progress_container">
+          <img src="https://cdn.pixabay.com/photo/2012/04/24/13/49/tick-40143_1280.png" alt="correct-tick-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[1].status ===
+        "NOT_FOR_TODAY") {%>
+        <div id="progress_container">
+          <img src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-wrong-false-icon-design-template-vector-isolated-png-image_711426.jpg" alt="wrong-cross-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[1].status ===
+        "IN_PROGRESS") {%>
+        <div id="progress_container">
+          <img src="https://t3.ftcdn.net/jpg/00/89/29/08/360_F_89290814_TSIevLOXjAUtXGpO0EOhTp1cH9gQWlhq.jpg" alt="work_in_progress" height="70" width="100" />
+        </div>
+        <% } else {%>
+        <div id="progress_container">
+          <img src="https://previews.123rf.com/images/lkeskinen/lkeskinen1701/lkeskinen170101285/68343996-not-completed-rubber-stamp.jpg" alt="work_rejected" height="70" width="100" />
+        </div>
+        <% }%> <% } %>
+      </td>
+
+      <!-- Day 3 habit information -->
+      <td class="day_habit_progress">
+        <!-- date information -->
+        <div id="date_information">
+          <%= dates_list[2] %> <% if(seven_day_information_about_habit[2]) { %>
+          <div class="editIcon" data-habit_track-id=<%= seven_day_information_about_habit[2]._id %> data-habit_track-status=<%=seven_day_information_about_habit[2].status %>>
+            <img src=" https://cdn-icons-png.flaticon.com/512/32/32355.png" alt="edit icon" height="20" width="20" />
+          </div>
+          <% } %>
+        </div>
+
+        <% if(seven_day_information_about_habit[2]) { %> <%
+        if(seven_day_information_about_habit[2].status === "DONE") {%>
+        <div id="progress_container">
+          <img src="https://cdn.pixabay.com/photo/2012/04/24/13/49/tick-40143_1280.png" alt="correct-tick-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[2].status ===
+        "NOT_FOR_TODAY") {%>
+        <div id="progress_container">
+          <img src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-wrong-false-icon-design-template-vector-isolated-png-image_711426.jpg" alt="wrong-cross-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[2].status ===
+        "IN_PROGRESS") {%>
+        <div id="progress_container">
+          <img src="https://t3.ftcdn.net/jpg/00/89/29/08/360_F_89290814_TSIevLOXjAUtXGpO0EOhTp1cH9gQWlhq.jpg" alt="work_in_progress" height="70" width="100" />
+        </div>
+        <% } else {%>
+        <div id="progress_container">
+          <img src="https://previews.123rf.com/images/lkeskinen/lkeskinen1701/lkeskinen170101285/68343996-not-completed-rubber-stamp.jpg" alt="work_rejected" height="70" width="100" />
+        </div>
+        <% }%> <% } %>
+      </td>
+
+      <!-- Day 4 habit information -->
+      <td class="day_habit_progress">
+        <!-- date information -->
+        <div id="date_information">
+          <%= dates_list[3] %> <% if(seven_day_information_about_habit[3]) { %>
+          <div class="editIcon" data-habit_track-id=<%= seven_day_information_about_habit[3]._id %> data-habit_track-status=<%=seven_day_information_about_habit[3].status %>>
+            <img src=" https://cdn-icons-png.flaticon.com/512/32/32355.png" alt="edit icon" height="20" width="20" />
+          </div>
+          <% } %>
+        </div>
+
+        <% if(seven_day_information_about_habit[3]) { %> <%
+        if(seven_day_information_about_habit[3].status === "DONE") {%>
+        <div id="progress_container">
+          <img src="https://cdn.pixabay.com/photo/2012/04/24/13/49/tick-40143_1280.png" alt="correct-tick-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[3].status ===
+        "NOT_FOR_TODAY") {%>
+        <div id="progress_container">
+          <img src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-wrong-false-icon-design-template-vector-isolated-png-image_711426.jpg" alt="wrong-cross-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[3].status ===
+        "IN_PROGRESS") {%>
+        <div id="progress_container">
+          <img src="https://t3.ftcdn.net/jpg/00/89/29/08/360_F_89290814_TSIevLOXjAUtXGpO0EOhTp1cH9gQWlhq.jpg" alt="work_in_progress" height="70" width="100" />
+        </div>
+        <% } else {%>
+        <div id="progress_container">
+          <img src="https://previews.123rf.com/images/lkeskinen/lkeskinen1701/lkeskinen170101285/68343996-not-completed-rubber-stamp.jpg" alt="work_rejected" height="70" width="100" />
+        </div>
+        <% }%> <% } %>
+      </td>
+
+      <!-- Day 5 habit information -->
+      <td class="day_habit_progress">
+        <!-- date information -->
+        <div id="date_information">
+          <%= dates_list[4] %> <% if(seven_day_information_about_habit[4]) { %>
+          <div class="editIcon" data-habit_track-id=<%=seven_day_information_about_habit[4]._id %> data-habit_track-status=<%=
+            seven_day_information_about_habit[4].status %>>
+            <img src=" https://cdn-icons-png.flaticon.com/512/32/32355.png" alt="edit icon" height="20" width="20" />
+          </div>
+          <% } %>
+        </div>
+
+        <% if(seven_day_information_about_habit[4]) { %> <%
+        if(seven_day_information_about_habit[4].status === "DONE") {%>
+        <div id="progress_container">
+          <img src="https://cdn.pixabay.com/photo/2012/04/24/13/49/tick-40143_1280.png" alt="correct-tick-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[4].status ===
+        "NOT_FOR_TODAY") {%>
+        <div id="progress_container">
+          <img src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-wrong-false-icon-design-template-vector-isolated-png-image_711426.jpg" alt="wrong-cross-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[4].status ===
+        "IN_PROGRESS") {%>
+        <div id="progress_container">
+          <img src="https://t3.ftcdn.net/jpg/00/89/29/08/360_F_89290814_TSIevLOXjAUtXGpO0EOhTp1cH9gQWlhq.jpg" alt="work_in_progress" height="70" width="100" />
+        </div>
+        <% } else {%>
+        <div id="progress_container">
+          <img src="https://previews.123rf.com/images/lkeskinen/lkeskinen1701/lkeskinen170101285/68343996-not-completed-rubber-stamp.jpg" alt="work_rejected" height="70" width="100" />
+        </div>
+        <% }%> <% } %>
+      </td>
+
+      <!-- Day 6 habit information -->
+      <td class="day_habit_progress">
+        <!-- date information -->
+        <div id="date_information">
+          <%= dates_list[5] %> <% if(seven_day_information_about_habit[5]) { %>
+          <div class="editIcon" data-habit_track-id=<%= seven_day_information_about_habit[5]._id %> data-habit_track-status=<%=
+            seven_day_information_about_habit[5].status %>>
+            <img src=" https://cdn-icons-png.flaticon.com/512/32/32355.png" alt="edit icon" height="20" width="20" />
+          </div>
+          <% } %>
+        </div>
+
+        <% if(seven_day_information_about_habit[5]) { %> <%
+        if(seven_day_information_about_habit[5].status === "DONE") {%>
+        <div id="progress_container">
+          <img src="https://cdn.pixabay.com/photo/2012/04/24/13/49/tick-40143_1280.png" alt="correct-tick-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[5].status ===
+        "NOT_FOR_TODAY") {%>
+        <div id="progress_container">
+          <img src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-wrong-false-icon-design-template-vector-isolated-png-image_711426.jpg" alt="wrong-cross-image" height="70" width="100" />
+        </div>
+        <% } else if(seven_day_information_about_habit[5].status ===
+        "IN_PROGRESS") {%>
+        <div id="progress_container">
+          <img src="https://t3.ftcdn.net/jpg/00/89/29/08/360_F_89290814_TSIevLOXjAUtXGpO0EOhTp1cH9gQWlhq.jpg" alt="work_in_progress" height="70" width="100" />
+        </div>
+        <% } else {%>
+        <div id="progress_container">
+          <img src="https://previews.123rf.com/images/lkeskinen/lkeskinen1701/lkeskinen170101285/68343996-not-completed-rubber-stamp.jpg" alt="work_rejected" height="70" width="100" />
+        </div>
+        <% }%> <% } %>
+      </td>
+
+      <!-- Day 7 habit information -->
+      <td class="day_habit_progress">
+        <!-- date information -->
+        <div id="date_information">
+          <%= dates_list[6] %> <% if(seven_day_information_about_habit[6]) { %>
+          <div class="editIcon" data-habit_track-id=<%= seven_day_information_about_habit[6]._id %> data-habit_track-status=<%=
+            seven_day_information_about_habit[0].status %>>
+            <img src=" https://cdn-icons-png.flaticon.com/512/32/32355.png" alt="edit icon" height="20" width="20" />
+          </div>
+          <%}%>
+        </div>
+
+        <% if(seven_day_information_about_habit[6]) { %> <%
+        if(seven_day_information_about_habit[6].status === "DONE") {%>
+          <div id="progress_container">
+            <img src="https://cdn.pixabay.com/photo/2012/04/24/13/49/tick-40143_1280.png" alt="correct-tick-image" height="70" width="100" />
+          </div>
+          <% } else if(seven_day_information_about_habit[6].status ===
+        "NOT_FOR_TODAY") {%>
+          <div id="progress_container">
+            <img src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-wrong-false-icon-design-template-vector-isolated-png-image_711426.jpg" alt="wrong-cross-image" height="70" width="100" />
+          </div>
+          <% } else if(seven_day_information_about_habit[6].status ===
+        "IN_PROGRESS") {%>
+          <div id="progress_container">
+            <img src="https://t3.ftcdn.net/jpg/00/89/29/08/360_F_89290814_TSIevLOXjAUtXGpO0EOhTp1cH9gQWlhq.jpg" alt="work_in_progress" height="70" width="100" />
+          </div>
+          <% } else {%>
+          <div id="progress_container">
+            <img src="https://previews.123rf.com/images/lkeskinen/lkeskinen1701/lkeskinen170101285/68343996-not-completed-rubber-stamp.jpg" alt="work_rejected" height="70" width="100" />
+          </div>
+          <% }%> <% } %>
+      </td>
+    </tr>
+    <% } %>
+  </table>
+</section>

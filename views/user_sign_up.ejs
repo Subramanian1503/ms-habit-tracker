@@ -1,0 +1,62 @@
+<div class="page_layout">
+  <!-- left partition of the page -->
+  <div class="left_partition" id="sign_up_page">
+    <!-- heading for login page -->
+    <div id="sign_up_heading" class="page_heading">
+      Sign up and make life easy
+    </div>
+
+    <div id="sign_up_container">
+      <form
+        action="/users/create"
+        method="POST"
+        id="sign_up_form"
+      >
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          class="input_field"
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          class="input_field"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          class="input_field"
+          required
+        />
+        <input
+          type="password"
+          name="confirm_password"
+          placeholder="Confirm Password"
+          class="input_field"
+          required
+        />
+        <!-- Avatar input -->
+        <input
+          type="text"
+          name="avatar"
+          placeholder="Avatar"
+          class="input_field file_input"
+          required
+        />
+        <input
+          type="submit"
+          value="Sign Up"
+          class="submit_button"
+          id="sign_up"
+        />
+      </form>
+    </div>
+  </div>
+
+  <div class="right_partition" id="sign_up_link_section"></div>
+</div>

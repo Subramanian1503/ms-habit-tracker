@@ -1,0 +1,62 @@
+<div class="page_layout">
+  <!-- left partition of the page -->
+  <div class="left_partition" id="sign_in_page">
+    <!-- heading for login page -->
+    <div id="login_heading" class="page_heading">Login to Your Account</div>
+
+    <!-- login using social media account sub heading -->
+    <div id="login_subheading" class="page_subheading">
+      Login using social networks
+    </div>
+
+    <!-- social media button for login -->
+    <div id="social_media_login" class="social_media_button_container">
+      <!-- gmail button  -->
+    </div>
+
+    <!-- or border -->
+    <div id="social_sign_in_or_sign_in" class="option_or"></div>
+
+    <!-- sign in form container -->
+    <div id="sign_in_container">
+      <form action="/users/create_session" method="POST" id="sign_in_form">
+        <input
+          type="email"
+          name="email"
+          class="input_field"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          class="input_field"
+          placeholder="Password"
+          required
+        />
+        <input
+          id="sign_in"
+          type="submit"
+          value="Sign In"
+          class="submit_button"
+        />
+      </form>
+    </div>
+  </div>
+
+  <!-- right partition page -->
+  <div class="right_partition" id="sign_up_link_section">
+    <!-- heading for new here -->
+    <div id="signup_heading" class="page_heading">New Here ?</div>
+
+    <!-- sub heading regarding sign up -->
+    <div id="signup_subheading" class="page_subheading">
+      Sign up and lead a tracked, healthy and productive life
+    </div>
+
+    <!-- sign up button -->
+    <a href="/users/signUp" class="submit_button" id="sign_up_button"
+      >Sign Up</a
+    >
+  </div>
+</div>
