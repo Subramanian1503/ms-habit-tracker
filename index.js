@@ -8,6 +8,9 @@ const passport = require("passport");
 const express_session = require("express-session");
 const MongoStore = require("connect-mongo");
 
+// Initialzing the dot env config
+const environmentalVariableConfig = require("dotenv").config();
+
 // Getting the application from the imported express library
 const application = express();
 
