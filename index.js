@@ -15,7 +15,7 @@ const environmentalVariableConfig = require("dotenv").config();
 const application = express();
 
 // Port using which client communicates to the server
-// const SERVICE_PORT = 8080;
+const SERVICE_PORT = 8080;
 
 const expressLayout = require("express-ejs-layouts");
 
@@ -48,7 +48,7 @@ application.use(
       maxAge: 10 * 60 * 60 * 1000,
     },
     store: MongoStore.create({
-      mongoUrl: process.env.MONGO_DB_CONNECT,
+      mongoUrl: "mongodb+srv://admin:atlasadmin123@habit-tracker-cluster-1.s5lubel.mongodb.net/?retryWrites=true&w=majority",
     }),
   })
 );
@@ -70,10 +70,10 @@ application.use("/", mainRouter);
 application.use("/upload", express.static(__dirname + "/upload"));
 
 // Defining the application to listent to the defined port
-application.listen(process.env.SERVICE_PORT, (error) => {
+application.listen(SERVICE_PORT, (error) => {
   if (error) {
     console.log(`Error occurred while trying to start server: ${error}`);
     return;
   }
-  console.log(`Habit tracker server started successfully`);
+  console.log(`Habit tracker server started successfully at: ${SERVICE_PORT}`);
 });
