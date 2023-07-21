@@ -1,10 +1,15 @@
 // Importing the express library to define routes
 const express = require("express");
+
+const passport = require("passport");
+
+// client view page render
 const view_page_render = require("../controller/page_render/view_page");
 const user_page_render = require("../controller/page_render/user");
 const calender_page_render = require("../controller/page_render/calender_page");
+
+// Routers
 const user_router = require("./user");
-const passport = require("passport");
 const habit_track_router = require("./habit_track");
 const habit_router = require("./habit");
 

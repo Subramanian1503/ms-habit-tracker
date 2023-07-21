@@ -21,13 +21,11 @@ passport.use(
             return done(null, user);
           } else {
             // If not then done allow
-            request.flash('error', "Not Authorized user");
             return done(null, false);
           }
         })
         .catch((error) => {
           if (error) {
-            request.flash('error', error);
             return done(error);
           }
         });

@@ -8,9 +8,6 @@ const passport = require("passport");
 const express_session = require("express-session");
 const MongoStore = require("connect-mongo");
 
-// Initialzing the dot env config
-const environmentalVariableConfig = require("dotenv").config();
-
 // Getting the application from the imported express library
 const application = express();
 
@@ -18,9 +15,6 @@ const application = express();
 const SERVICE_PORT = 8080;
 
 const expressLayout = require("express-ejs-layouts");
-
-const fileUpload = require("express-fileupload");
-application.use(fileUpload());
 
 // Initialising the layout for ejs
 application.use(expressLayout);
@@ -65,9 +59,6 @@ const mainRouter = require("./routes");
 
 // Defining the middle ware to use the defined router in the application
 application.use("/", mainRouter);
-
-// Setting a middleware to redirect to the local upload folder for image search
-application.use("/upload", express.static(__dirname + "/upload"));
 
 // Defining the application to listent to the defined port
 application.listen(SERVICE_PORT, (error) => {

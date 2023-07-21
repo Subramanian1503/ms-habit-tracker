@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const envConfig = require("dotenv").config();
 
 mongoose.connect("mongodb+srv://admin:atlasadmin123@habit-tracker-cluster-1.s5lubel.mongodb.net/?retryWrites=true&w=majority");
 
