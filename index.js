@@ -48,7 +48,7 @@ application.use(
       maxAge: 10 * 60 * 60 * 1000,
     },
     store: MongoStore.create({
-      mongoUrl: "mongodb://127.0.0.1:27017/users_session_db",
+      mongoUrl: process.env.MONGO_DB_CONNECT,
     }),
   })
 );

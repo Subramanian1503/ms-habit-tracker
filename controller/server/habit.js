@@ -7,6 +7,7 @@ module.exports.create = async (request, response) => {
     const { name, avatar } = request.body;
 
     // Validate the request
+    console.log()
 
     // Execute create habit using habit model
     const createdHabit = await Habit.create({

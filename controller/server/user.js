@@ -20,8 +20,9 @@ module.exports.createUser = async (request, response) => {
       const createdUser = await User.create(request.body);
 
       // redirecting with the view page and collected data from DB
-      return response.redirect("/habit-track/");
+      return response.render("/user/signIn");
     } catch (error) {
+      console.log(`Error occured while trying to create user with error message: ${error}`);
       return response.redirect("back");
     }
   } else {
