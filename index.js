@@ -15,7 +15,7 @@ const environmentalVariableConfig = require("dotenv").config();
 const application = express();
 
 // Port using which client communicates to the server
-const SERVICE_PORT = 8080;
+// const SERVICE_PORT = 8080;
 
 const expressLayout = require("express-ejs-layouts");
 
@@ -70,7 +70,7 @@ application.use("/", mainRouter);
 application.use("/upload", express.static(__dirname + "/upload"));
 
 // Defining the application to listent to the defined port
-application.listen(SERVICE_PORT, (error) => {
+application.listen(process.env.SERVICE_PORT, (error) => {
   if (error) {
     console.log(`Error occurred while trying to start server: ${error}`);
     return;
