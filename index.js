@@ -42,7 +42,7 @@ application.use(
       maxAge: 10 * 60 * 60 * 1000,
     },
     store: MongoStore.create({
-      mongoUrl: "mongodb+srv://admin:atlasadmin123@habit-tracker-cluster-1.s5lubel.mongodb.net/?retryWrites=true&w=majority",
+      mongoUrl: "mongodb+srv://admin:atlasadmin123@employee-performance-tr.phxxqrk.mongodb.net/?retryWrites=true&w=majority",
     }),
   })
 );
