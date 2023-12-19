@@ -12,8 +12,8 @@
 
 #calender_view_container {
   /* border: 2px solid black; */
-  height: 735px;
-  width: 1534px;
+  height: 100%;
+  width: 100%;
   box-sizing: border-box;
 }
 
