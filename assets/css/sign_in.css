@@ -112,8 +112,8 @@
 
 .page_layout {
   /* border: 2px solid black; */
-  height: 740px;
-  width: 1535px;
+  height: 100%;
+  width: 100%;
   display: flex;
 }
 
